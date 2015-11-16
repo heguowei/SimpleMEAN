@@ -10,6 +10,7 @@ This is a sample web app using MySQL, Express and Mean
 * [EmailJS](http://github.com/eleith/emailjs) - Node.js > SMTP Server Middleware
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
+* [Underscore.js](http://underscorejs.org/) -  JavaScript library that provides a whole mess of useful functional 
 
 ***
 

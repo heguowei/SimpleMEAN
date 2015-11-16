@@ -4,10 +4,9 @@ var PT = require('./modules/profession-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
-var fs = require('fs');
 
 var _ = require('underscore');
-
+var fs = require('fs');
 
 
 module.exports = function(app) {
@@ -167,11 +166,8 @@ module.exports = function(app) {
 	
 
     app.get('/files/:directory', function(req,res){
-     //   FM.getAllRecords( //__dirname,req.params.directory,req.url,function(e, arrFiles){
-		//	res.render('files', { title : 'File List', accts : arrFiles });
-		//})
-        var directory = req.params.directory;
-         var arrURL = req.url.split('/');
+     var directory = req.params.directory;
+     var arrURL = req.url.split('/');
     var appending = false;
     for (var i = 0, l = arrURL.length; i < l; i++){ // if there are more subdirectories, attempt to append them to the local directory
         if (arrURL[i] === directory){
@@ -193,8 +189,8 @@ module.exports = function(app) {
        res.status(400).send('No such directory. Please try again');
       
     }
-    
-  var arrFiles = [];
+    var arrFiles = [];
+ 
     // console.info("files"+files);
     for (var i in files){
         if (!files.hasOwnProperty(i)){
@@ -205,10 +201,8 @@ module.exports = function(app) {
             arrFiles.push(files[i]);
         }     
     }
-    
-     res.render('files', { title : 'File Name List', accts : arrFiles });
-  
-    
+	  res.render('files', { title : 'File Name List', accts : arrFiles });
+		
        
     });
 	 
