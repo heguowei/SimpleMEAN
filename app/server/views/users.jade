@@ -1,0 +1,32 @@
+h1 Current Users
+.divCountrols
+    .form-inline
+        h4 Enter a filter:
+        .form-group
+            label(for='selField') Field:
+            select#selField
+                option(value='null') Please Select:
+                option(value='city') City
+                option(value='state') State
+                option(value='gender') Gender
+            label(for='selValue') Value:
+            select#selValue
+                option(value="null") Please Select:
+            button#btnReset(type='button') Reset
+ul
+    each model in models
+        if model.showing
+            li.list-unstyled
+                dl.dl-horizontal
+                    dt UserName:
+                    dd= model.attributes.username
+                    dt Email:
+                    dd= model.attributes.email
+                    dt City:
+                    dd= model.attributes.city
+                    dt State:
+                    dd= model.attributes.state
+                    dt Age:
+                    dd= model.attributes.age
+                    dt Gender:
+                    dd= model.attributes.gender

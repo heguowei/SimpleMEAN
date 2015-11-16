@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div.container(style='margin:20px')
+		table.table.table-bordered.table-striped
+			thead
+				tr
+					th(style='width:40px') #
+					th(style='width:180px') File Name
+					
+			tbody
+			- for (var i = 0; i < accts.length; i++)
+				tr
+					td= i+1
+					td= accts[i]
+				
