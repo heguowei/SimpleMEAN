@@ -224,10 +224,27 @@ module.exports = function(app) {
       
          var  filters = req.param('query');
          var arr = [];
-       
+         var groupby = req.param('groupby');
+
+
         if(filters==null){
           AM.getAllRecords( function(e, accounts){
-			res.render('print', { title : 'Account List', accts : accounts          });
+          	
+          	var accounts_g = [];
+          	if(groupby==null){
+                accounts_g= accounts;
+                 res.render('print', { title : 'Account List', accts : accounts_g });
+          	}else{
+               var t=mygroup(groupby, accounts);
+                
+               for (elem in t) {
+               accounts_g.push(t[elem]);
+               }
+              console.info(accounts_g);
+               res.render('group', { title : 'Account List', accts : accounts_g });
+          	}
+          	
+          
 		}) 
        }
         else{       
@@ -238,18 +255,26 @@ module.exports = function(app) {
         arr.push(your);
        
           
-       //var your=filters;
-       //console.info(your);
-      //  arr.push(your);
-        console.info(arr);
+       
        	AM.getRecordsByFilter(arr,function(e, accounts){
             if(accounts==null){
 			 res.status(400).send('record not found'); 
             }
             else{
-                res.render('print', { title : 'Account List', accts : accounts
-                    });
+               console.info(groupby);
+          	var accounts_g = [];
+          	if(groupby ==null){
+                accounts_g= accounts;
+                  res.render('print', { title : 'Account List', accts : accounts_g });
+          	}else{
+               var t=mygroup(groupby, accounts);
                
+               for (elem in t) {
+               accounts_g.push(t[elem]);
+               }
+                console.info(accounts_g);
+               res.render('group', { title : 'Account List', accts : accounts_g });
+          	}
             }
 		});
         }
@@ -277,5 +302,21 @@ module.exports = function(app) {
        
         res.render('404', { title: 'Page Not Found'});
     });
+
+    var mygroup = function(g, accounts) {
+	 var t=[];
+	 console.info(g);
+	 if(g.localeCompare("country")){
+           t= _.groupBy(accounts, function(accounts) { return accounts.country; });
+      }else if(g.localeCompare("profession")){
+            t= _.groupBy(accounts, function(accounts) { return accounts.profession; });
+        }else{
+        	 t=accounts;
+        }       
+              
+
+           return t;
+     }
+
 
 };

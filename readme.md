@@ -59,24 +59,28 @@ localhost:3001/listusers
 
 List all users in the database filter by URL parameter
 
-http://localhost:3001/listusers?query={"profession":"Engineer"}
+//localhost:3001/listusers?query={"country":"United States"}
 
 List all users in the database groups them by another parameter 
 
-No Implement. I will do research in the future.
+Implemented by underscore.js. 
+//localhost:3001/listusers?Group="profession".
+
+If you want to run filter and groupby both, you can use the link below:
+//localhost:3001/listusers?query={"country":"United States"}&groupby="profession"
 
 3 Build an endpoint that checks and returns the status of all components that it depends on (e.g. Is Mongo still up OK, etc.).
 Healthcheck:
 
-localhost:3001/ping
+//localhost:3001/ping
 
 4 Build an endpoint that when called returns the list of files in a given directory
 
-http://localhost:3001/files/:directory
+//localhost:3001/files/:directory
 
 The "files" endpoint requires a URL parameter listing which sub-folder(s) under the solution root folder to query:
 
-http://localhost:3001/files/modules
+//localhost:3001/files/modules
 
 
 Questions and suggestions for improvement are welcome.

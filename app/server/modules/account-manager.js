@@ -142,7 +142,7 @@ exports.getAllRecords = function(callback)
 exports.getRecordsByFilter = function(a, callback)
 {
 // this takes an array of name/val pairs to search against {fieldName : 'value'} //
-    console.info(a);
+    
 	accounts.find( { $or : a }).toArray(
 		function(e, results) {
 		if (e) callback(e)
