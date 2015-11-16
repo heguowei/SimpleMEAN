@@ -17,8 +17,8 @@ This is a sample web app using MySQL, Express and Mean
 1. Install [Node.js](https://nodejs.org/) & [MongoDB](https://www.mongodb.org/) if you haven't already.
 2. Clone this repository and install its dependencies.
 		
-		> git clone git://github.com/braitsch/node-login.git node-login
-		> cd node-login
+		> git clone https://github.com/heguowei/SimpleMEAN.git SimpleMEAN
+		> cd SimpleMean
 		> npm install -d
 		
 3. (Optional) Add your gmail credentials to [/app/server/modules/email-settings.js](https://github.com/braitsch/node-login/blob/master/app/server/modules/email-settings.js) if you want to enable the password retrieval feature.
@@ -32,7 +32,7 @@ This is a sample web app using MySQL, Express and Mean
 
 ---
 
-###to start the app.
+###Start the app.
 
 The app should then be running under:
 
@@ -71,6 +71,5 @@ The "files" endpoint requires a URL parameter listing which sub-folder(s) under 
 
 http://localhost:3001/files/modules
 
-will list all the JavaScript model files for the app.
 
 Questions and suggestions for improvement are welcome.
