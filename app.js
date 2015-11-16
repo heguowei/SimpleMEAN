@@ -8,6 +8,9 @@ var cookieParser = require('cookie-parser');
 var MongoStore = require('connect-mongo')(session);
 var health = require('express-ping');
 var app = express();
+var request = require('request');
+var cheerio = require('cheerio');
+
 
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/app/server/views');
@@ -18,7 +21,7 @@ app.use(session({
 	proxy: true,
 	resave: true,
 	saveUninitialized: true,
-	store: new MongoStore({ host: 'localhost', port: 27017, db: 'node-login'})
+	store: new MongoStore({ host: 'localhost', port: 27017, db: 'SimpleMEAN'})
 	})
 );
 app.use(bodyParser.json());

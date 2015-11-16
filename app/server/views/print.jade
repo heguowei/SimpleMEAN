@@ -2,20 +2,22 @@
 extends layout
 
 block content
-	div.container(style='margin:20px')
-		table.table.table-bordered.table-striped
-			thead
-				tr
-					th(style='width:40px') #
-					th(style='width:180px') name
-					th(style='width:200px') country
-					th(style='width:180px') user
-					th date
-			tbody
-			- for (var i = 0; i < accts.length; i++)
-				tr
-					td= i+1
-					td= accts[i].name
-					td= accts[i].country
-					td= accts[i].user
-					td= accts[i].date
+    div.container(style='margin:20px')
+        table.table.table-bordered.table-striped
+            thead
+                tr
+                    th(style='width:40px') #
+                    th(style='width:180px') name
+                    th(style='width:200px') country
+                    th(style='width:200px') profession
+                    th(style='width:180px') user
+                    th created date
+            tbody
+            - for (var i = 0; i < accts.length; i++)
+                tr
+                    td= i+1
+                    td= accts[i].name
+                    td= accts[i].country
+                    td= accts[i].profession
+                    td= accts[i].user
+                    td= accts[i].date

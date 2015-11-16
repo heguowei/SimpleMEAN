@@ -6,7 +6,7 @@ var moment 		= require('moment');
 
 var dbPort 		= 27017;
 var dbHost 		= 'localhost';
-var dbName 		= 'node-login';
+var dbName 		= 'SimpleMEAN';
 
 /* establish the database connection */
 
@@ -80,6 +80,7 @@ exports.updateAccount = function(newData, callback)
 		o.name 		= newData.name;
 		o.email 	= newData.email;
 		o.country 	= newData.country;
+        o.profession     = newData.profession;
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {
 				if (err) callback(err);
@@ -204,7 +205,7 @@ var findById = function(id, callback)
 var findByMultipleFields = function(a, callback)
 {
 // this takes an array of name/val pairs to search against {fieldName : 'value'} //
-    console.info(a);
+    
 	accounts.find( { $or : a } ).toArray(
 		function(e, results) {
 		if (e) callback(e)

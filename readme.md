@@ -52,19 +52,26 @@ The funcations below are also suppot
 * Session Tracking for Logged-In Users
 * Local Cookie Storage for Returning Users
 
-2 Build an endpoint that returns all users in the database filtered by a URL parameter (can be city, profession, etc) and groups them by another parameter (also your choice).
+2 Build an endpoint that returns all users in the database filtered by a URL parameter (can be county, profession, etc) and groups them by another parameter (also your choice).
 List all users:
+
 localhost:3001/listusers
+
 List all users in the database filter by URL parameter
-localhost:3001/listusers?query={“county”:”United States”}
+
+http://localhost:3001/listusers?query={"profession":"Engineer"}
+
 List all users in the database groups them by another parameter 
+
 No Implement. I will do research in the future.
 
 3 Build an endpoint that checks and returns the status of all components that it depends on (e.g. Is Mongo still up OK, etc.).
 Healthcheck:
+
 localhost:3001/ping
 
 4 Build an endpoint that when called returns the list of files in a given directory
+
 http://localhost:3001/files/:directory
 
 The "files" endpoint requires a URL parameter listing which sub-folder(s) under the solution root folder to query:

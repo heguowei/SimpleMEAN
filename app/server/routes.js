@@ -1,9 +1,12 @@
 
 var CT = require('./modules/country-list');
+var PT = require('./modules/profession-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
 var fs = require('fs');
+
+var _ = require('underscore');
 
 
 
@@ -53,6 +56,7 @@ module.exports = function(app) {
 			res.render('home', {
 				title : 'Control Panel',
 				countries : CT,
+                profession: PT,
 				udata : req.session.user
 			});
 		}
@@ -65,7 +69,8 @@ module.exports = function(app) {
 				name 	: req.body['name'],
 				email 	: req.body['email'],
 				pass	: req.body['pass'],
-				country : req.body['country']
+				country : req.body['country'],
+                profession   : req.body['profession']
 			}, function(e, o){
 				if (e){
 					res.status(400).send('error-updating-account');
@@ -89,7 +94,7 @@ module.exports = function(app) {
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
-		res.render('signup', {  title: 'Signup', countries : CT });
+		res.render('signup', {  title: 'Signup', countries : CT,  professions: PT });
 	});
 	
 	app.post('/signup', function(req, res){
@@ -98,7 +103,8 @@ module.exports = function(app) {
 			email 	: req.body['email'],
 			user 	: req.body['user'],
 			pass	: req.body['pass'],
-			country : req.body['country']
+			country : req.body['country'],
+            profession   : req.body['profession']
 		}, function(e){
 			if (e){
 				res.status(400).send(e);
@@ -225,8 +231,17 @@ module.exports = function(app) {
 		}) 
        }
         else{       
-        arr.push(JSON.parse(filters));
-        
+         console.info(filters);
+      
+        var your=JSON.parse(filters);
+       
+        arr.push(your);
+       
+          
+       //var your=filters;
+       //console.info(your);
+      //  arr.push(your);
+        console.info(arr);
        	AM.getRecordsByFilter(arr,function(e, accounts){
             if(accounts==null){
 			 res.status(400).send('record not found'); 

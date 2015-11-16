@@ -5,7 +5,7 @@
 	"author": "George He <heguowei@gmail.com>",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:braitsch/node-login.git"
+		"url": "https://github.com/heguowei/SimpleMEAN.git"
 	},
 	"dependencies": {
 		"express": "4.13.3",
@@ -19,7 +19,11 @@
 		"emailjs": "1.0.0",
 		"connect-mongo": "0.8.2",
 		"errorhandler": "1.4.2",
-		"express-ping": "^1.0.0"
+		"express-ping": "^1.0.0",
+		"request": "2.65.0",
+		"cheerio": "0.19.0",
+		"jquery": "2.1.4",
+		"underscore":"1.8.3"
 	},
 	"engines": {
 		"node": "4.2.1"
