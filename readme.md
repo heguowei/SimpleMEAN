@@ -32,7 +32,7 @@ This is a sample web app using MySQL, Express and Mean
 
 ---
 
-###Start the app.
+###Start the app
 
 The app should then be running under:
 
